@@ -3,7 +3,8 @@ package items
 import "context"
 
 type Repository interface {
-	AddItem(ctx context.Context, item Item) bool
-	GetItemByID(ctx context.Context, id string) (Item, error)
+	AddItems(ctx context.Context, items []Item) error
+	AddItem(ctx context.Context, item Item) error
+	GetItemByID(ctx context.Context, id string) (*Item, error)
 	GetItems(ctx context.Context) []Item
 }
